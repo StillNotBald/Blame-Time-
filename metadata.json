@@ -1,0 +1,5 @@
+{
+  "name": "IncidentCommand",
+  "description": "A minimalist, frontend-only IT incident management dashboard using local storage for persistence.",
+  "requestFramePermissions": []
+}

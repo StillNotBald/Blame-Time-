@@ -1175,7 +1175,15 @@ localStorage.getItem('incident_command_data_v3')
 
 ## 📝 License
 
-This project was generated from AI Studio and is intended for educational/internal use.
+This project is licensed under the **MIT License**.
+
+You are free to:
+- ✅ Use commercially
+- ✅ Modify and distribute
+- ✅ Use privately
+- ✅ Sublicense
+
+See the [LICENSE](LICENSE) file for full details.
 
 ---
 

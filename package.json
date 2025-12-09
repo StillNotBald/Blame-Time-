@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,7 +12,8 @@
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-router-dom": "6.22.3",
-    "lucide-react": "^0.469.0"
+    "lucide-react": "0.344.0",
+    "@hello-pangea/dnd": "16.6.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

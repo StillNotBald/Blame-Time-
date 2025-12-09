@@ -43,6 +43,12 @@ export interface Incident {
   updates: IncidentUpdate[];
 }
 
+export interface KanbanColumnConfig {
+  id: string;
+  title: string;
+  statuses: string[]; // List of statuses that map to this column
+}
+
 export interface LOVData {
   categories: string[];
   priorities: string[];
@@ -51,6 +57,7 @@ export interface LOVData {
   impactCategories: string[];
   channels: string[];
   regions: string[];
+  kanbanColumns: KanbanColumnConfig[];
 }
 
 export interface IncidentFilters {

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Incident, IncidentUpdate } from '../types';
+import WorkflowStepper from './WorkflowStepper';
 import { Search, Clock, MessageSquare, ChevronRight, CheckCircle2, AlertCircle, Send } from 'lucide-react';
 
 interface RequestorStatusScreenProps {
@@ -144,6 +145,11 @@ const RequestorStatusScreen: React.FC<RequestorStatusScreenProps> = ({ incidents
                     <p><span className="font-medium text-gray-500 w-24 inline-block">Ticket ID:</span> {selectedTicket.id}</p>
                     <p><span className="font-medium text-gray-500 w-24 inline-block">Category:</span> {selectedTicket.category}</p>
                     <p><span className="font-medium text-gray-500 w-24 inline-block">Created:</span> {new Date(selectedTicket.timestamp).toLocaleString()}</p>
+                  </div>
+                  
+                  {/* Workflow Visualization */}
+                  <div className="mt-6">
+                    <WorkflowStepper incident={selectedTicket} />
                   </div>
                 </div>
 

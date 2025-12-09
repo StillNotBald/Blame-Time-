@@ -44,7 +44,7 @@ const BroadcastForm: React.FC<BroadcastFormProps> = ({ lovs, onSubmit }) => {
       <div className="bg-gray-50 px-6 py-4 border-b border-gray-100">
         <h2 className="text-gray-900 font-semibold flex items-center gap-2">
           <PlusCircle size={18} className="text-blue-600" />
-          Broadcast Incident
+          Register Ticket
         </h2>
       </div>
       <form onSubmit={handleSubmit} className="p-6">
@@ -116,7 +116,7 @@ const BroadcastForm: React.FC<BroadcastFormProps> = ({ lovs, onSubmit }) => {
               type="submit"
               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg shadow-sm hover:shadow transition-all active:scale-95"
             >
-              BROADCAST
+              REGISTER
             </button>
           </div>
         </div>

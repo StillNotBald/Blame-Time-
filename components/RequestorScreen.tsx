@@ -99,8 +99,8 @@ const RequestorScreen: React.FC<RequestorScreenProps> = ({ lovs, onSubmit, showT
         <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
           <CheckCircle2 size={32} />
         </div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Broadcast Sent Successfully</h2>
-        <p className="text-gray-500 max-w-md">The Warroom has been notified. You can submit another issue shortly.</p>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Ticket Registered Successfully</h2>
+        <p className="text-gray-500 max-w-md">The Warroom has been notified. You can register another issue shortly.</p>
       </div>
     );
   }
@@ -108,7 +108,7 @@ const RequestorScreen: React.FC<RequestorScreenProps> = ({ lovs, onSubmit, showT
   return (
     <div className="max-w-4xl mx-auto p-6 md:p-10">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Broadcast Incident</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Register Ticket</h1>
         <p className="text-gray-500 mt-1">Please provide as much detail as possible to help us triage the issue.</p>
       </div>
 
@@ -223,7 +223,7 @@ const RequestorScreen: React.FC<RequestorScreenProps> = ({ lovs, onSubmit, showT
 
           <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow transition-all active:scale-[0.99] flex justify-center items-center gap-2">
             <Send size={18} />
-            BROADCAST INCIDENT
+            REGISTER TICKET
           </button>
         </div>
       </form>

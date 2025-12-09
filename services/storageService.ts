@@ -29,6 +29,28 @@ const DEFAULT_LOVS: LOVData = {
   ],
   regions: [
     'North America', 'EMEA', 'APAC', 'LATAM'
+  ],
+  kanbanColumns: [
+    { 
+      id: 'col-new', 
+      title: 'New / Triage', 
+      statuses: ['New', 'ReOpen', 'Need more info', 'Outage'] 
+    },
+    { 
+      id: 'col-assigned', 
+      title: 'Assigned', 
+      statuses: ['Acknowledged'] 
+    },
+    { 
+      id: 'col-progress', 
+      title: 'In Progress', 
+      statuses: ['In Progress'] 
+    },
+    { 
+      id: 'col-done', 
+      title: 'Done', 
+      statuses: ['Resolved', 'Closed', 'Return to BAU', 'Duplicate', 'Invalid Issue', 'Post Hypercare'] 
+    }
   ]
 };
 
@@ -55,8 +77,14 @@ export const getStoredLOVs = (): LOVData => {
   try {
     const storedStr = localStorage.getItem(STORAGE_KEY_LOVS);
     const stored = storedStr ? JSON.parse(storedStr) : {};
-    // Merge stored values with defaults to ensure new keys (like regions) exist if user has old data
-    return { ...DEFAULT_LOVS, ...stored };
+    
+    // Merge stored values with defaults to ensure new keys exist
+    // Specifically handle kanbanColumns if missing in old data
+    const merged = { ...DEFAULT_LOVS, ...stored };
+    if (!merged.kanbanColumns || merged.kanbanColumns.length === 0) {
+      merged.kanbanColumns = DEFAULT_LOVS.kanbanColumns;
+    }
+    return merged;
   } catch (error) {
     return DEFAULT_LOVS;
   }

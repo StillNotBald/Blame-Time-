@@ -9,6 +9,7 @@ import CommandCenterScreen from './components/CommandCenterScreen';
 import SettingsModal from './components/SettingsModal';
 import RequestorStatusScreen from './components/RequestorStatusScreen';
 import SMEWorklistScreen from './components/SMEWorklistScreen';
+import KanbanBoardScreen from './components/KanbanBoardScreen';
 import { CheckCircle2, AlertCircle, X } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -16,6 +17,9 @@ const App: React.FC = () => {
   const [lovs, setLovs] = useState<LOVData>(getStoredLOVs());
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  
+  // Role State: 'admin' | 'user'
+  const [userRole, setUserRole] = useState<'admin' | 'user'>('admin');
 
   // Toast State
   const [toast, setToast] = useState<{ msg: string; type: 'success' | 'error'; visible: boolean }>({ msg: '', type: 'success', visible: false });
@@ -86,8 +90,11 @@ const App: React.FC = () => {
         <Route path="/" element={
           <Layout 
             lovs={lovs}
+            incidents={incidents}
             onExport={() => exportIncidentsToCSV(incidents)} 
             onOpenSettings={() => setIsSettingsOpen(true)} 
+            userRole={userRole}
+            setUserRole={setUserRole}
           />
         }>
           <Route index element={<DashboardScreen incidents={incidents} lovs={lovs} />} />
@@ -107,6 +114,13 @@ const App: React.FC = () => {
               incidents={incidents} 
               lovs={lovs} 
               onUpdateIncident={handleUpdateIncident}
+            />
+          } />
+          <Route path="kanban" element={
+            <KanbanBoardScreen 
+              incidents={incidents} 
+              onUpdateIncident={handleUpdateIncident}
+              lovs={lovs}
             />
           } />
         </Route>

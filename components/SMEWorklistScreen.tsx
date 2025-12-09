@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Incident, LOVData } from '../types';
 import { User, CheckCircle, Clock, ArrowRight, Save } from 'lucide-react';
 
@@ -9,6 +10,7 @@ interface SMEWorklistProps {
 }
 
 const SMEWorklistScreen: React.FC<SMEWorklistProps> = ({ incidents, lovs, onUpdateIncident }) => {
+  const navigate = useNavigate();
   const [smeName, setSmeName] = useState('');
   const [activeTab, setActiveTab] = useState<'Active' | 'Resolved'>('Active');
 
@@ -139,9 +141,12 @@ const SMEWorklistScreen: React.FC<SMEWorklistProps> = ({ incidents, lovs, onUpda
                         {ticket.status}
                       </div>
                       <div className="ml-auto">
-                         <a href={`#/command-center?warroom=${encodeURIComponent(ticket.warroom)}`} className="text-blue-600 hover:text-blue-800 text-xs font-medium flex items-center gap-1">
+                         <button 
+                           onClick={() => navigate(`/command-center?warroom=${encodeURIComponent(ticket.warroom)}&ticketId=${ticket.id}`)}
+                           className="text-blue-600 hover:text-blue-800 text-xs font-medium flex items-center gap-1"
+                         >
                            View Full Details <ArrowRight size={12} />
-                         </a>
+                         </button>
                       </div>
                    </div>
                  </div>
